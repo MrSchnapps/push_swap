@@ -6,7 +6,7 @@
 /*   By: judecuyp <judecuyp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 16:30:46 by judecuyp          #+#    #+#             */
-/*   Updated: 2021/03/07 22:51:09 by judecuyp         ###   ########.fr       */
+/*   Updated: 2021/03/08 16:25:21 by judecuyp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sa(t_swap *a, t_swap *b)
 {
 	(void)b;
 	if (a->len >= 2)
-		swap(&a->stack[a->len-1], &a->stack[a->len-2]);
+		swap(&a->stack[a->len - 1], &a->stack[a->len - 2]);
 	ft_putstr_fd("sa\n", 1);
 }
 
@@ -24,16 +24,16 @@ void	sb(t_swap *a, t_swap *b)
 {
 	(void)a;
 	if (b->len >= 2)
-		swap(&b->stack[b->len-1], &b->stack[b->len-2]);
+		swap(&b->stack[b->len - 1], &b->stack[b->len - 2]);
 	ft_putstr_fd("sb\n", 1);
 }
 
 void	ss(t_swap *a, t_swap *b)
 {
 	if (a->len >= 2)
-		swap(&a->stack[a->len-1], &a->stack[a->len-2]);
+		swap(&a->stack[a->len - 1], &a->stack[a->len - 2]);
 	if (b->len >= 2)
-		swap(&b->stack[b->len-1], &b->stack[b->len-2]);
+		swap(&b->stack[b->len - 1], &b->stack[b->len - 2]);
 	ft_putstr_fd("ss\n", 1);
 }
 

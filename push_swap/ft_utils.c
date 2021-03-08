@@ -6,12 +6,39 @@
 /*   By: judecuyp <judecuyp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 16:08:12 by judecuyp          #+#    #+#             */
-/*   Updated: 2021/03/07 21:20:22 by judecuyp         ###   ########.fr       */
+/*   Updated: 2021/03/08 19:35:14 by judecuyp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.hpp"
 
+/*
+** Add a new index on the intex tab and increase his length
+*/
+
+int		add_index(t_part **s, size_t index)
+{
+	size_t	*new_tab;
+	int		i;
+
+	i = 0;	
+	new_tab = (size_t *)malloc(sizeof(size_t) * ((*s)->len + 1));
+	if (!new_tab)
+		return (ft_error(MERR));
+	if ((*s)->t_i != NULL)
+	{
+		while (i < (*s)->len)
+		{
+			new_tab[i] = (*s)->t_i[i];
+			i++;
+		}
+		free((*s)->t_i);
+	}
+	new_tab[i] = index;
+	(*s)->t_i = new_tab;
+	(*s)->len = i + 1;
+	return (0);
+}
 
 // Attention printf
 
@@ -70,6 +97,19 @@ void	swap(int64_t *n1, int64_t *n2)
 	swp = *n1;
 	*n1 = *n2;
 	*n2 = swp;
+}
+
+
+void	print_part(t_swap *s)
+{
+	int i;
+
+	i = 0;
+	while (i < s->part->len)
+	{
+		printf("Partition %d ==> |%zu|\n", i, s->part->t_i[i]);
+		i++;
+	}
 }
 
 void	print_stack(t_swap *s)

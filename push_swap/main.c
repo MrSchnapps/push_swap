@@ -6,7 +6,7 @@
 /*   By: judecuyp <judecuyp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 13:27:22 by judecuyp          #+#    #+#             */
-/*   Updated: 2021/03/08 00:05:54 by judecuyp         ###   ########.fr       */
+/*   Updated: 2021/03/08 20:42:15 by judecuyp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	parse_args(char **argv)
 	return (0);
 }
 
-void init(t_swap *sa, t_swap *sb, int argc)
+int init(t_swap *sa, t_swap *sb, int argc)
 {
 	sa->size = argc - 1;
 	sb->size = argc - 1;
@@ -78,6 +78,22 @@ void init(t_swap *sa, t_swap *sb, int argc)
 	sb->stack = NULL;
 	sa->len = 0;
 	sb->len = 0;
+	sa->part = NULL;
+	sb->part = NULL;
+	sa->part = (t_part *)malloc(sizeof(t_part));
+	if (!sa->part)
+		return (ft_error(MERR));
+	sb->part = (t_part *)malloc(sizeof(t_part));
+	if (!sb->part)
+		return (ft_error(MERR));
+	/*sa->part->t_i = (size_t *)malloc(sizeof(size_t));
+	if (!sa->part->t_i)
+		return (ft_error(MERR));*/
+	sa->part->t_i = NULL;
+	sb->part->t_i = NULL;
+	sa->part->len = 0;
+	sb->part->len = 0;
+	return (0);
 }
 
 int main(int argc, char **argv)
@@ -89,7 +105,8 @@ int main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	init(&a, &b, argc);
+	if (init(&a, &b, argc))
+		return (ft_free(&a, &b, MERR));
 	if ((err = parse_args(argv)))
 		return (err);
 	if ((err = allocate_stack(&a, &b, argv, argc)))
@@ -98,7 +115,8 @@ int main(int argc, char **argv)
 	//tests
 	/*if ((err = getMedian(a.stack, 0, a.len, &med)))
 		return (ft_free(&a, &b, err));*/
-	ft_find(&a, &b);
+	if ((err = ft_find(&a, &b)))
+		return (ft_free(&a, &b, err));
 	
 	printf("\n===== Stack fin prog =====\n");
 	print_stack(&a);
