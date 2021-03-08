@@ -6,7 +6,7 @@
 /*   By: judecuyp <judecuyp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 16:30:46 by judecuyp          #+#    #+#             */
-/*   Updated: 2021/03/04 19:18:43 by judecuyp         ###   ########.fr       */
+/*   Updated: 2021/03/07 22:51:09 by judecuyp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	sa(t_swap *a, t_swap *b)
 	(void)b;
 	if (a->len >= 2)
 		swap(&a->stack[a->len-1], &a->stack[a->len-2]);
+	ft_putstr_fd("sa\n", 1);
 }
 
 void	sb(t_swap *a, t_swap *b)
@@ -24,6 +25,7 @@ void	sb(t_swap *a, t_swap *b)
 	(void)a;
 	if (b->len >= 2)
 		swap(&b->stack[b->len-1], &b->stack[b->len-2]);
+	ft_putstr_fd("sb\n", 1);
 }
 
 void	ss(t_swap *a, t_swap *b)
@@ -32,6 +34,7 @@ void	ss(t_swap *a, t_swap *b)
 		swap(&a->stack[a->len-1], &a->stack[a->len-2]);
 	if (b->len >= 2)
 		swap(&b->stack[b->len-1], &b->stack[b->len-2]);
+	ft_putstr_fd("ss\n", 1);
 }
 
 void	pa(t_swap *a, t_swap *b)
@@ -45,6 +48,7 @@ void	pa(t_swap *a, t_swap *b)
 			b->len -= 1;
 		}
 	}
+	ft_putstr_fd("pa\n", 1);
 }
 
 void	pb(t_swap *a, t_swap *b)
@@ -58,4 +62,5 @@ void	pb(t_swap *a, t_swap *b)
 			a->len -= 1;
 		}
 	}
+	ft_putstr_fd("pb\n", 1);
 }

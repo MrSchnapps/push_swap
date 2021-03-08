@@ -6,7 +6,7 @@
 /*   By: judecuyp <judecuyp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 13:37:04 by judecuyp          #+#    #+#             */
-/*   Updated: 2021/03/04 19:46:48 by judecuyp         ###   ########.fr       */
+/*   Updated: 2021/03/07 13:30:28 by judecuyp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	ft_error(int code)
 	else if (code == MERR)
 		ft_putstr_fd("Memory error.\n", 2);
 	else if (code == DERR)
-		ft_putstr_fd("Duplicates in input", 2);
+		ft_putstr_fd("Duplicates in input.\n", 2);
+	else if (code == INDERR)
+		ft_putstr_fd("Negative index.\n", 2);
 	return (code);
 }

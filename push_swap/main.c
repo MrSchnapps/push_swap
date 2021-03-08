@@ -6,7 +6,7 @@
 /*   By: judecuyp <judecuyp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 13:27:22 by judecuyp          #+#    #+#             */
-/*   Updated: 2021/03/04 22:46:05 by judecuyp         ###   ########.fr       */
+/*   Updated: 2021/03/08 00:05:54 by judecuyp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 int	allocate_stack(t_swap *a, t_swap *b, char **argv, int argc)
 {
-	int i;
-	int j;
+	size_t i;
+	size_t j;
 
 	i = argc - 1;
 	j = 0;
@@ -85,7 +85,7 @@ int main(int argc, char **argv)
 	t_swap	a;
 	t_swap	b;
 	int64_t	err;
-	int64_t	moy;
+	//int64_t	med;
 
 	if (argc < 2)
 		return (0);
@@ -96,9 +96,14 @@ int main(int argc, char **argv)
 		return (err);
 
 	//tests
-	if ((err = getMedian(a.stack, 0, a.len, moy))
-		return (ft_free(&a, &b, err));
-	printf("\nmediane => |%ld|", moy);
+	/*if ((err = getMedian(a.stack, 0, a.len, &med)))
+		return (ft_free(&a, &b, err));*/
+	ft_find(&a, &b);
+	
+	printf("\n===== Stack fin prog =====\n");
+	print_stack(&a);
+	print_stack(&b);
+	
 	//free final
 	ft_free(&a, &b, 0);
 	return (0);

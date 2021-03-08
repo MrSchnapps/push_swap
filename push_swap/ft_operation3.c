@@ -6,7 +6,7 @@
 /*   By: judecuyp <judecuyp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 17:06:46 by judecuyp          #+#    #+#             */
-/*   Updated: 2021/03/04 19:25:31 by judecuyp         ###   ########.fr       */
+/*   Updated: 2021/03/07 14:21:40 by judecuyp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,5 @@ void	rrr(t_swap *a, t_swap *b)
 {
 	rra(a, b);
 	rrb(a, b);
+	ft_putstr_fd("rrr\n", 1);
 }

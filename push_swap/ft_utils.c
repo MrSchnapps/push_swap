@@ -6,7 +6,7 @@
 /*   By: judecuyp <judecuyp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 16:08:12 by judecuyp          #+#    #+#             */
-/*   Updated: 2021/03/04 22:45:17 by judecuyp         ###   ########.fr       */
+/*   Updated: 2021/03/07 21:20:22 by judecuyp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ int	getMedian(int64_t *stack, int64_t start, int64_t end, int64_t *med)
 		start++;
 	}
 	sort_tab(tab, len);
-	for (int i = 0; i < len; i++)  // virer
-		printf("i -> |%ld|\n", tab[i]);
+	/*for (int i = 0; i < len; i++)  // virer
+		printf("i -> |%ld|\n", tab[i]);*/
 	*med = tab[((len + 1) / 2) - 1];
 	free(tab);
 	return (0);

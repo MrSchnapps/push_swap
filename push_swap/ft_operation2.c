@@ -6,7 +6,7 @@
 /*   By: judecuyp <judecuyp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 16:32:14 by judecuyp          #+#    #+#             */
-/*   Updated: 2021/03/04 19:16:39 by judecuyp         ###   ########.fr       */
+/*   Updated: 2021/03/07 14:21:51 by judecuyp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	ra(t_swap *a, t_swap *b)
 		i--;
 	}
 	a->stack[0] = swp;
+	ft_putstr_fd("ra\n", 1);
 }
 
 void	rb(t_swap *a, t_swap *b)
@@ -46,18 +47,21 @@ void	rb(t_swap *a, t_swap *b)
 		i--;
 	}
 	b->stack[0] = swp;
+	ft_putstr_fd("rb\n", 1);
 }
 
+/*modif print pas ra rb dans rr*/
 void	rr(t_swap *a, t_swap *b)
 {
 	ra(a, b);
 	rb(a, b);
+	ft_putstr_fd("rr\n", 1);
 }
 
 void	rra(t_swap *a, t_swap *b)
 {
 	int64_t	swp;
-	int64_t	i;
+	size_t	i;
 
 	(void)b;
 	if (a->len == 0)
@@ -70,14 +74,15 @@ void	rra(t_swap *a, t_swap *b)
 		i++;
 	}
 	a->stack[a->len - 1] = swp;
+	ft_putstr_fd("rra\n", 1);
 }
 
 void	rrb(t_swap *a, t_swap *b)
 {
 	int64_t	swp;
-	int64_t	i;
+	size_t	i;
 
-	(void)b;
+	(void)a;
 	if (b->len == 0)
 		return ;
 	i = 0;
@@ -88,4 +93,5 @@ void	rrb(t_swap *a, t_swap *b)
 		i++;
 	}
 	b->stack[b->len - 1] = swp;
+	ft_putstr_fd("rrb\n", 1);
 }
