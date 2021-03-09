@@ -6,7 +6,7 @@
 /*   By: judecuyp <judecuyp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 13:27:56 by judecuyp          #+#    #+#             */
-/*   Updated: 2021/03/09 15:01:37 by judecuyp         ###   ########.fr       */
+/*   Updated: 2021/03/09 16:41:35 by judecuyp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@
 # define MERR 4
 # define DERR 5
 # define INDERR 6
-# define OFERR 7.
+# define OFERR 7
+# define ERR 2
 
 typedef struct	s_part
 {
@@ -44,6 +45,7 @@ typedef struct	s_swap
 
 int		ft_free(t_swap *a, t_swap *b, int code);
 int		ft_error(int code);
+int		free_str(char **str, int ret);
 
 /*
 ** Lib
@@ -55,6 +57,7 @@ void	ft_putstr_fd(char *str, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putchar_fd(char c, int fd);
 int		ft_strcmp(char *s1, char *s2);
+void	swap(int64_t *n1, int64_t *n2);
 
 /*
 ** Utils
@@ -62,9 +65,16 @@ int		ft_strcmp(char *s1, char *s2);
 
 void	print_stack(t_swap *s);
 void	print_part(t_swap *s);
-void	swap(int64_t *n1, int64_t *n2);
 int		getMedian(int64_t *stack, int64_t start, int64_t end, int64_t *med);
 int		add_index(t_part **s, size_t index);
+
+/*
+** Parsing
+*/
+
+int		allocate_stack(t_swap *a, t_swap *b, char **argv, int argc);
+int		parse_args(char **argv);
+int		init(t_swap *sa, t_swap *sb, int argc);
 
 /*
 ** Operations
