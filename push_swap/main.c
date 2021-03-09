@@ -6,7 +6,7 @@
 /*   By: judecuyp <judecuyp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 13:27:22 by judecuyp          #+#    #+#             */
-/*   Updated: 2021/03/08 20:42:15 by judecuyp         ###   ########.fr       */
+/*   Updated: 2021/03/09 14:36:03 by judecuyp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@ int	allocate_stack(t_swap *a, t_swap *b, char **argv, int argc)
 		return (ft_error(ft_free(a, b, MERR)));
 	while (i > 0)
 	{
-		a->stack[j] = ft_atoi(argv[i]);
+		a->stack[j] = (int64_t)ft_atoil(argv[i]);
+		if (a->stack[j] > INT32_MAX || a->stack[j] < INT32_MIN)
+			return (ft_error(ft_free(a, b, OFERR)));
 		a->len++;
 		j++;
 		i--;
@@ -101,7 +103,6 @@ int main(int argc, char **argv)
 	t_swap	a;
 	t_swap	b;
 	int64_t	err;
-	//int64_t	med;
 
 	if (argc < 2)
 		return (0);
@@ -111,17 +112,12 @@ int main(int argc, char **argv)
 		return (err);
 	if ((err = allocate_stack(&a, &b, argv, argc)))
 		return (err);
-
-	//tests
-	/*if ((err = getMedian(a.stack, 0, a.len, &med)))
-		return (ft_free(&a, &b, err));*/
 	if ((err = ft_find(&a, &b)))
 		return (ft_free(&a, &b, err));
 	
-	printf("\n===== Stack fin prog =====\n");
+	/*printf("\n===== Stack fin prog =====\n");
 	print_stack(&a);
-	print_stack(&b);
-	
+	print_stack(&b);*/
 	//free final
 	ft_free(&a, &b, 0);
 	return (0);

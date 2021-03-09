@@ -6,7 +6,7 @@
 /*   By: judecuyp <judecuyp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 13:37:04 by judecuyp          #+#    #+#             */
-/*   Updated: 2021/03/08 19:31:46 by judecuyp         ###   ########.fr       */
+/*   Updated: 2021/03/09 14:29:45 by judecuyp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,14 @@ int		ft_free(t_swap *s1, t_swap *s2, int code)
 
 int	ft_error(int code)
 {
-	if (code == NAN)
+	ft_putstr_fd("Error\n", 2);
+	/*if (code == NAN)
 		ft_putstr_fd("Not a number.\n", 2);
 	else if (code == MERR)
 		ft_putstr_fd("Memory error.\n", 2);
 	else if (code == DERR)
 		ft_putstr_fd("Duplicates in input.\n", 2);
 	else if (code == INDERR)
-		ft_putstr_fd("Negative index.\n", 2);
+		ft_putstr_fd("Negative index.\n", 2);*/
 	return (code);
 }

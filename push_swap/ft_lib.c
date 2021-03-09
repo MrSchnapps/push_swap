@@ -6,16 +6,16 @@
 /*   By: judecuyp <judecuyp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 15:57:25 by judecuyp          #+#    #+#             */
-/*   Updated: 2021/03/04 16:25:12 by judecuyp         ###   ########.fr       */
+/*   Updated: 2021/03/09 14:35:54 by judecuyp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.hpp"
 
-int		ft_atoi(const char *nptr)
+int64_t		ft_atoil(const char *nptr)
 {
 	int					sign;
-	unsigned int		nb;
+	int64_t				nb;
 
 	sign = 1;
 	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
@@ -32,7 +32,7 @@ int		ft_atoi(const char *nptr)
 		nb = (nb * 10) + *nptr - '0';
 		nptr++;
 	}
-	return ((int)(nb * sign));
+	return ((int64_t)(nb * sign));
 }
 
 void	ft_putchar_fd(char c, int fd)

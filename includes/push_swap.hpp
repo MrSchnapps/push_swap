@@ -6,7 +6,7 @@
 /*   By: judecuyp <judecuyp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 13:27:56 by judecuyp          #+#    #+#             */
-/*   Updated: 2021/03/08 18:25:56 by judecuyp         ###   ########.fr       */
+/*   Updated: 2021/03/09 15:01:37 by judecuyp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,7 @@
 # define MERR 4
 # define DERR 5
 # define INDERR 6
-
-/*typedef struct	s_part
-{
-	int				index;
-	struct s_part	*next;
-}				t_part;*/
+# define OFERR 7.
 
 typedef struct	s_part
 {
@@ -54,7 +49,7 @@ int		ft_error(int code);
 ** Lib
 */
 
-int		ft_atoi(const char *nptr);
+int64_t	ft_atoil(const char *nptr);
 int		ft_strlen(char *str);
 void	ft_putstr_fd(char *str, int fd);
 void	ft_putnbr_fd(int n, int fd);
@@ -102,4 +97,8 @@ int		lst_add_prt(t_part **prt, int index);
 */
 
 int		ft_find(t_swap *a, t_swap *b);
+int		check_sorted(t_swap *s);
+void	sort_three(t_swap *a, t_swap *b);
+void	sort_three_a(t_swap *a, t_swap *b);
+void	sort_three_b(t_swap *a, t_swap *b);
 #endif
